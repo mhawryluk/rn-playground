@@ -13,7 +13,7 @@ const exampleOptions: { icon: SFSymbol; text: string; onPress: () => void }[] = 
   { icon: 'airpod.gen3.left', text: 'AirPods Gen 3', onPress: () => {} },
 ];
 
-const transition = LinearTransition.springify().duration(4000);
+const transition = LinearTransition.springify().mass(0.8);
 
 export default function ExpandingMenu({
   options = exampleOptions,
@@ -32,7 +32,7 @@ export default function ExpandingMenu({
 
       <Animated.View
         layout={transition}
-        className={`absolute bottom-10 right-10 items-end justify-end ${expanded ? 'gap-2' : ''} overflow-hidden rounded-2xl bg-blue-200 p-4`}>
+        className={`absolute bottom-32 right-10 items-end justify-end ${expanded ? 'gap-2' : ''} overflow-hidden rounded-2xl bg-blue-200 p-4`}>
         <Animated.View className="items-end" layout={transition}>
           <Pressable onPress={() => setExpanded((expanded) => !expanded)}>
             <SymbolView name="ellipsis" size={28} tintColor={'#1d4ed8'} />
