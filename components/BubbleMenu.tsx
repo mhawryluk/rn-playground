@@ -1,4 +1,4 @@
-import { Pressable, View, Text} from 'react-native';
+import { Pressable, View, Text, TouchableOpacity} from 'react-native';
 import { SFSymbol, SymbolView } from 'expo-symbols';
 import { useState } from 'react';
 import Animated, { FadeIn, FadeOut, LinearTransition, interpolate } from 'react-native-reanimated';
@@ -36,7 +36,7 @@ export default function BubbleMenu({
 
       <View className="absolute bottom-10 right-10">
         {options.map(({ icon, text, onPress }, i) => (
-          <Pressable key={icon} onPress={onPress}>
+          <TouchableOpacity key={icon} onPress={onPress}>
             <Animated.View
               layout={LinearTransition.springify().mass(2).restSpeedThreshold(100)
                 .delay(i * 100)}
@@ -59,7 +59,7 @@ export default function BubbleMenu({
                 {text}
               </Text>
             </Animated.View>
-          </Pressable>
+          </TouchableOpacity>
         ))}
 
         <Pressable onPress={() => setExpanded((expanded) => !expanded)}>
